@@ -1,6 +1,8 @@
-FROM ubuntu:24.04
+FROM golang:1.23.4-alpine
 
-RUN <<EOF
-apt-get update
-apt-get install -y nginx
-EOF
+WORKDIR /app
+COPY go.mod ./app/
+RUN go mod download
+
+RUN go build main.go
+CMD [ "/main" ]
