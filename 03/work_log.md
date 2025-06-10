@@ -1,5 +1,9 @@
 ```bash
-# go-hello という名前でイメージをビルド
-docker build -t go-hello .
-docker run go-hello
+# 起動
+docker-compose up -d
+```
+
+```bash
+# 終了
+docker-compose down
 ```
