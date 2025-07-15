@@ -1,15 +1,20 @@
 # kdg-server-2025
 
 ## コマンド
-イメージに名前をつけてビルド
+
+kind をインストール
+
 ```bash
-docker build . -t kdg-nginx
+aqua g -i
+# kubernetes-sigs/kind を選択する
 ```
-image の一覧を確認する
+
 ```bash
-docker image ls
+aqua i
 ```
-指定した image を実行
+
+config を指定して cluster を作成
+
 ```bash
-docker run -it kdg-nginx
+kind create cluster --config cluster.yaml
 ```
