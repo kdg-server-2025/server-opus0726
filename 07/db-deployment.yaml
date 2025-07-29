@@ -13,24 +13,24 @@ spec:
         app: mariadb
     spec:
       containers:
-      - name: mariadb
-        image: mariadb:11.8.1-ubi9-rc
-        ports:
-        - containerPort: 3306
-        envFrom:
-          - secretRef:
-              name: wordpress-secret
-        resources:
-          requests:
-            memory: "256Mi"
-            cpu: "250m"
-          limits:
-            memory: "512Mi"
-            cpu: "500m"
-        volumeMounts:
-        - name: db-data-storage
-          mountPath: /var/lib/mysql
+        - name: mariadb
+          image: mariadb:11.8.1-ubi9-rc
+          ports:
+            - containerPort: 3306
+          envFrom:
+            - secretRef:
+                name: wordpress-secret
+          resources:
+            requests:
+              memory: "300Mi"
+              cpu: "100m"
+            limits:
+              memory: "900Mi"
+              cpu: "300m"
+          volumeMounts:
+            - name: db-data-storage
+              mountPath: /var/lib/mysql
       volumes:
-      - name: db-data-storage
-        persistentVolumeClaim:
-          claimName: db-data-pvc
+        - name: db-data-storage
+          persistentVolumeClaim:
+            claimName: db-data-pvc
